@@ -1,0 +1,59 @@
+-2023/08/06
+
+[인프런 - 따라하며 배우는 노드, 리액트 시리즈 (기본강의)]
+
+-프로젝트 폴더 생성 (boilerProject) , npm / express 설치 후 기본적인 앱 형태 구축
+
+-mongoDB 설치 / mongoose 설치
+-mongoDB
+-모델 : 스키마를 감싸주는 역할
+-스키마 : 각각의 정보(데이터)의 특성?을 지정해주는 역할 ex.타입 : String 등등..
+
+-git 연결 + commit
+(git add / git status / git commit)
+-git : local , 소스코드를 관리할 수 있는 툴
+-github : 클라우드 서비스, git을 사용하는 서비스
+
+-github repository 생성
+-SSH 설정 (local과 github가 안전하게 통신하게 하기 위해) -> git bash 셀에서 진행
+(참고 사이트:https://docs.github.com/ko/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=windows)
+-github에 올리기 성공(push)
+
+-2023/08/10
+[인프런 - 따라하며 배우는 노드, 리액트 시리즈 (기본강의)]
+
+(7강)
+//회원가입 기능 만들기
+- Client - Server 통신을 위해 설치해야 할 것
+1. Client->Server 로 데이터 전송함.
+Request with Body : Body 데이터를 분석(parse)해서 req.body로 출력해주는것
+-> 이를 위해선 Body-parser Dependency 설치 필요
+(bodyparser : 클라이언트에서 오는 정보를 서버에서 분석해서 가져올 수 있게끔 함.) 
+//npm install body-parser --save
+2. Client에서 Request를 줘야 하는데 현재 Client가 없으니 POSTMAN을 이용해서 request를 보낸다.
+-> POSTMAN 설치
+-> Register Route 만들기 
+
+(8강)
+-Nodemon 설치
+Nodemon : 서버를 끄고 켤 필요 없이 소스의 변화된 부분을 감지하여 바꿔줌.
+//npm install nodemon --save-dev (-dev : development 모드 , 로컬에서 할때만 사용을 하겠다는 의미)
+-> 시작할때 nodemon으로 시작하기 위해 script 하나 더 만들기
+(코드를 수정 후 저장하고 페이지 새로고침 하면 수정사항 적용됨.(서버를 끄고 켤 필요 없음))
+
+(9강)
+-비밀 정보를 보호하기
+ex. mongoDB 연결할때의 id/password
+-> 이 정보를 따로 떼서 .gitignore에 그 정보는 깃에 올리면 안된다. 라고 해줘야함.
+
+-개발할때 두가지 환경 (따로 생각해야함) 
+1. Local 환경 (development) 
+2. Deploy(배포) 한 후 (production)
+// 1. development 환경에선 파일에서 URI를 가져올 수 있음.
+2. 헤로쿠와 같은 사이트에서 URI를 관리해야함.
+-> 따라서 두가지 경우에 따라 따로 URI 파일을 만들고 환경변수에 따라 다르게 연결해줘야 한다. 
+(key.js -> dev.js / prod.js) 
+
+-마지막으로 gitignore에 비밀정보가 있는 파일을 담아주기 (dev.js)
+
+-> github에 올리기 위해 
