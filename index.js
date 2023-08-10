@@ -1,18 +1,20 @@
 //backend의 시작점
 
-const express=require('express')
-const app=express()
-const port=3000
-const bodyParser=require('body-parser');
+const express=require('express');
+const app=express();
+const port=3000;
+//const bodyParser=require('body-parser'); express 4.x 버전 이후로는 bodyParser가 내장되어 있어서 따로 설치 안해도 OK.
 const config=require('./config/key');
 const { User } = require('./models/User');
 
-//application/x-www-form-urlencodeed (이렇게 된 데이터를 분석해서 가져올 수 있게 해줌)
-app.use(bodyParser.urlencoded({extended:true})); 
-//application/json
-app.use(bodyParser.json());
 
-const mongoose=require('mongoose')
+app.use(express.json());
+//application/x-www-form-urlencodeed (이렇게 된 데이터를 분석해서 가져올 수 있게 해줌)
+app.use(express.urlencoded({extended:true})); 
+//application/json
+
+
+const mongoose=require('mongoose');
 
 mongoose.connect(config.mongoURI,{
     useNewUrlParser:true,useUnifiedTopology:true
@@ -37,6 +39,8 @@ app.post('/register',async (req, res)=> {
     }).catch((err)=>{
         res.json({ success: false, err })
     })
+
+
 
     // Mongoose6부터 callback 문법이 사용되지 않아 코드 오류남
     // user.save((err,userInfo)=>{

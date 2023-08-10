@@ -59,3 +59,22 @@ ex. mongoDB 연결할때의 id/password
 -> github에 올리기 위해 
 // git add . -> git status (staging 되었는지 확인) -> git commit -m "~~"
 (에러 발생, 내 로컬에 없는 파일을 push 하면 발생하는 오류) -> git pull , git push 진행
+
+(10강)
+-Bcrypt로 비밀번호 암호화 하기
+Bcrypt : 라이브러리
+->POSTMAN으로 보낸 pw가 DB로 갈때 그대로 나타남 (보안성이 약하다.)
+->Bcrypt를 이용하여 pw를 암호화해서 DB에 저장
+//npm install bcrypt --save
+
+-먼저 Register Route로 가기
+
+-salt를 먼저 생성 -> salt를 이용해서 비밀번호를 암호화해야함. 
+-saltRounds : salt가 몇글자인지를 나타낸다.
+
++ 비밀번호를 암호화시키는건 비밀번호를 바꿀때만 해야되기 때문에 조건을 걸어줘야함.
+
++express 4.x 버전 이후로는 bodyParser 내장되어있어 설치 안해줘도 사용 가능함.
+// POSTMAN에서 값을 보내는건 성공했으나 서버로 갔을때 값이 안나오는 에러 발생 (빈객체로 뜸)
+-> POSTMAN에서 보내는 형식을 TEXT 가 아닌 JSON으로 변경해야함!!! (raw 체크 칸 오른쪽에 형식 선택칸이 있음.)
+
