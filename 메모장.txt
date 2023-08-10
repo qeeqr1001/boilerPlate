@@ -57,3 +57,5 @@ ex. mongoDB 연결할때의 id/password
 -마지막으로 gitignore에 비밀정보가 있는 파일을 담아주기 (dev.js)
 
 -> github에 올리기 위해 
+// git add . -> git status (staging 되었는지 확인) -> git commit -m "~~"
+(에러 발생, 내 로컬에 없는 파일을 push 하면 발생하는 오류) -> git pull , git push 진행
